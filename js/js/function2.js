@@ -483,44 +483,47 @@ numbers.forEach(function (num, idx, array) {
 
 /*
 3) Cоздать функцию, которая принимает строку имен, разделенную через пробел
-И принимает имя. Удаляет все повторения веденного имени из строки и 
+И принимает имя. Удаляет все повторения веденного имени из строки и
 возвращает новую строку
 Пример:
 const res = delNames('Pasha Dasha Pasha Masha','Pasha')
 console.log(res) // 'Dasha Masha'
 */
 //====================================================
-//let names = prompt('введите имена')
-//let nameDelet = prompt('введите имя какое нужно удалить')
+/*
+let names = prompt('введите имена')
+let nameDelet = prompt('введите имя какое нужно удалить')
 
-//function deletName(namesString, nameDelet) {
+function deletName(namesString, nameDelet) {
 
-//	let namesArr = namesString.split(' ')
-//	namesArr.forEach((name, idx) => {
-//		if (name == nameDelet) {
-//			namesArr.splice(idx, 1)
-//		}
-//	});
+	let namesArr = namesString.split(' ')
+	namesArr.forEach((name, idx) => {
+		if (name == nameDelet) {
+			namesArr.splice(idx, 1)
+		}
+	});
 
-//	console.log(namesArr);
-//}
+	console.log(namesArr);
+}
 
-//deletName(names, nameDelet)
+while
+deletName(names, nameDelet)
+*/
 //====================================================
 
 
 //2) Cоздать массив чисел, все четные числа возвести в куб.
+/*
+function numberIsCube(arr) {
+	arr.forEach((num, idx) => {
+		if (num % 2 == 0) arr[idx] = Math.pow(num, 3);
+	});
+}
 
-//const numbers = [1, 4, 5, 22, 7, 6, 25, 4,]
-
-//function numberIsCube(arr) {
-//	arr.forEach((num) => {
-//		if (num % 2 == 0) console.log(Math.pow(num, 3));
-//	});
-//}
-
-//numberIsCube(numbers)
-
+const numbers = [1, 4, 5, 22, 7, 6, 25, 4,]
+numberIsCube(numbers)
+console.log(numbers)
+*/
 //==========================================
 
 
@@ -537,26 +540,30 @@ ld - 1
 qwe -2
 */
 //==========================================
-let text = prompt('ввведите текст')
+//let text = prompt('ввведите текст')
 
-
+/*
 function countWord(string) {
-	let nameObject = {}
-	let namesArr = string.split(' ')
-	console.log(namesArr);
+	let worldsCount = {}
+	let worldsArray = string.split(' ')
 
-	for (names of namesArr) {
-
-		nameObject += nameObject.names = 'hello'
-
+	for (world of worldsArray) {
+		if (worldsCount[world]) {
+			worldsCount[world] = worldsCount[world] + 1
+		} else {
+			worldsCount[world] = 1
+		}
 	}
 
-	console.log(nameObject);
-
+	return worldsCount
 }
 
-countWord(text)
-
+let text = prompt('ввведите текст')
+const res = countWord(text)
+for (const key in res) {
+	console.log(key, res[key])
+}
+*/
 
 
 //for (letter of wordsArray) {
@@ -600,3 +607,51 @@ countWord(text)
 
 
 //==========================================
+//INCLUDES, FIND
+
+/*
+const names = ['Pasha', 'Anton', 'Misha']
+console.log(names.includes('Anton'))
+*/
+
+/*
+const users = [{ name: 'Pasha', age: 25 }, { name: 'Anton', age: 32 }]
+const user = users[0]
+console.log(users.includes(user))
+*/
+
+/*
+const names = ['Pasha', 'Anton', 'Misha']
+
+const name = names.find((n) => {
+	if (n == 'Anton') {
+		return true;
+	}
+})
+
+console.log(name)
+*/
+//const users = [{ name: 'Pasha', age: 25 }, { name: 'Anton', age: 32 }]
+
+//const user = users.find(u => {
+//	if (u.name == "Anton") {
+//		return true
+//	}
+//})
+
+//console.log(user)
+
+
+
+//let user = [
+//	{ name: 'Pasha', age: 25 },
+//	{ name: 'Roma', age: 25 },
+//	{ name: 'Kola', age: 25 },
+//	{ name: 'Vana', age: 25 },
+//]
+//if (user.includes(user.name)) {
+//	console.log('yes');
+//} else {
+//	console.log('no');
+
+//}
