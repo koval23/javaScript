@@ -577,35 +577,6 @@ for (const key in res) {
 
 
 
-
-//================работа с обэктами============
-//let object = {}
-//console.log(object);
-//object.name = 'kola'
-//console.log(object);
-//object.age = 25
-//console.log(object);
-//object.age = 22
-//console.log(object);
-
-
-
-
-
-//=============================================
-
-
-
-
-
-
-
-
-
-
-
-
-
 //==========================================
 //INCLUDES, FIND
 
@@ -641,8 +612,6 @@ console.log(name)
 
 //console.log(user)
 
-
-
 //let user = [
 //	{ name: 'Pasha', age: 25 },
 //	{ name: 'Roma', age: 25 },
@@ -655,3 +624,107 @@ console.log(name)
 //	console.log('no');
 
 //}
+
+
+/*
+const names = ['Pasha', 'Roma', 'Kola', 'Vana']
+
+const name = names.find((n) => n == 'Kola')
+
+console.log(name)
+*/
+
+//FILTER
+/*
+let users = [
+	{ name: 'Pasha', age: 17 },
+	{ name: 'Roma', age: 25 },
+	{ name: 'Kola', age: 16 },
+	{ name: 'Vana', age: 28 },
+]
+
+let usersAvarange = users.filter((user) => user.age > 18)
+console.log(usersAvarange);
+
+//let name = user.find((n) => n.name == 'Pasha')
+//console.log(name);
+*/
+
+
+//findIndex
+/*
+let users = [
+	{ name: 'Pasha', age: 17 },
+	{ name: 'Roma', age: 25 },
+	{ name: 'Kola', age: 16 },
+	{ name: 'Vana', age: 28 },
+]
+*/
+//console.log(users.indexOf({ name: 'Kola', age: 16 }))
+
+//const idx = users.findIndex(user => user.name == 'Kola')
+//users.splice(idx, 1)
+/*
+let newUser = []
+for (user of users) {
+	if (user.name != 'Kola') {
+		newUser.push(user)
+	}
+}
+users = newUser
+console.log(users);
+*/
+
+/*
+users = users.filter(item => item.name != 'Pasha')
+console.log(users)
+*/
+
+
+/*
+let names = ['Pasha', 'Roma', 'Kola', 'Vana']
+
+names = names.map((name, idx) => {
+	if (idx % 2 == 1) {
+		return name.toUpperCase()
+	}
+	return name
+})
+console.log(names)
+*/
+
+let users = [
+	{ name: 'Pasha', age: 17 },
+	{ name: 'Roma', age: 25 },
+	{ name: 'Kola', age: 16 },
+	{ name: 'Vana', age: 28 },
+]
+
+
+
+/*
+	[
+		{ name: 'Pasha', age: 17, sucesses: false },
+		{ name: 'Roma', age: 25, sucesses: true}
+		...
+	]
+*/
+
+users = users.map((user) => {
+	if (user.age > 18) {
+		user.sucesses = true
+		return user
+	}
+	user.sucesses = false
+	return user
+})
+
+console.log(users)
+
+/*
+users = users.map((user) => {
+	return user.name
+})
+
+console.log(users);
+*/
