@@ -650,7 +650,7 @@ console.log(usersAvarange);
 //console.log(name);
 */
 
-
+//!===================18.08.2022======
 //findIndex
 /*
 let users = [
@@ -693,12 +693,12 @@ names = names.map((name, idx) => {
 console.log(names)
 */
 
-let users = [
-	{ name: 'Pasha', age: 17 },
-	{ name: 'Roma', age: 25 },
-	{ name: 'Kola', age: 16 },
-	{ name: 'Vana', age: 28 },
-]
+//let users = [
+//	{ name: 'Pasha', age: 17 },
+//	{ name: 'Roma', age: 25 },
+//	{ name: 'Kola', age: 16 },
+//	{ name: 'Vana', age: 28 },
+//]
 
 
 
@@ -710,16 +710,16 @@ let users = [
 	]
 */
 
-users = users.map((user) => {
-	if (user.age > 18) {
-		user.sucesses = true
-		return user
-	}
-	user.sucesses = false
-	return user
-})
+//users = users.map((user) => {
+//	if (user.age > 18) {
+//		user.sucesses = true
+//		return user
+//	}
+//	user.sucesses = false
+//	return user
+//})
 
-console.log(users)
+//console.log(users)
 
 /*
 users = users.map((user) => {

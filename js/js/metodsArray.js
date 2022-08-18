@@ -81,7 +81,8 @@ const r = [3, 4, 5, 6, 7, 8, 9]
 
 if (r.includes(7, 3)) {
 	console.log('yes');
-} else {
+}
+else {
 	console.log('no');
 
 }
