@@ -20,6 +20,18 @@ let users = [
 
 let a = [2, 4, 3, 5, 8, 22, 7, 3];
 //console.log(a);
+//=================================
+
+const mean = (a) => {
+
+	let total = a.reduce((accum, item) => {
+		return accum + item
+	}, 0)
+	return total / a.length;
+}
+console.log(mean(a));
+
+//=================================
 
 //let b = a.reduce((accum, item, index) => {
 
@@ -35,15 +47,18 @@ let a = [2, 4, 3, 5, 8, 22, 7, 3];
 //}, [0, a[0]])
 
 //console.log(b);
-let arrInArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-let c = arrInArray.reduce((accum, item) => {
+//======================================
 
-	return accum.concat(item)
+//let arrInArray = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-}, [])
+//let c = arrInArray.reduce((accum, item) => {
 
-console.log(c);
+//	return accum.concat(item)
+
+//}, [])
+
+//console.log(c);
 
 
 
