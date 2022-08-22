@@ -7,7 +7,7 @@
 // повторяються то второй и далее не возвращаютсья если нет то возвращает -1
 // indexOf(2,0) второе значения в методе означает с какого индекса начинать искать(не обезательно)
 
-// const a = [3, 4, 5, 6, 7, 8, 9]
+// const a = [3,7, 4, 5, 6, 7, 8, 9]
 // const b = ['hi', 'hello']
 
 // console.table(a)
@@ -53,6 +53,28 @@
 //});
 
 //console.log(b);
+
+/*
+let students = [
+	{ name: 'Egor', marks: [4, 6, 8, 4, 3, 4] },
+	{ name: 'Andrey', marks: [7, 5, 3, 8, 1, 3] },
+	{ name: "Misha", marks: [9, 1, 2, 4, 6, 1] },
+]
+
+students = students.map(student => {
+	let sum = student.marks.reduce((accum, item) => {
+		accum += item
+		return accum
+	}, 0)
+	student.avarage = sum / student.marks.length
+	return student
+})
+
+console.log(students)
+*/
+
+
+
 
 
 //TODO =========================== FILTER =====================================
@@ -115,6 +137,18 @@
 // позволяет найти элемент по условию и возвращает только один еелемент
 //const arrFind = arr.filter((item, index, _arr))
 
+//const numbers = [5, 8, 6, 8, 4, 2]
+
+//const num = numbers.find(n => {
+//	if (n == 6) {
+//		return true
+//	} else {
+//		return false
+//	}
+//})
+
+//console.log(num)
+
 //================================================================================
 //TODO =========================== FINDINDEX ======================================
 
@@ -150,6 +184,24 @@
 
 //позволяе отсортировать масив
 //const arr1 = arr.sort((a,b)=>)
+
+//let users = [
+//	{ name: 'Pasha', age: 17 },
+//	{ name: 'Roma', age: 25 },
+//	{ name: 'Kola', age: 16 },
+//	{ name: 'Vana', age: 28 },
+//]
+
+//users.sort((user1, user2) => {
+
+//	if (user1.age < user2.age) return -1// ничего делать не нужно
+//	if (user1.age == user2.age) return 0
+//	if (user1.age > user2.age) return 1// миняем местами
+
+//})
+//console.log(users);
+
+
 
 //================================================================================
 //TODO =========================== .isArray ======================================

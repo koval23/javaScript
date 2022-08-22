@@ -41,5 +41,34 @@ filter - возвращает елемент если он true
 map - возвращает измененный елемент масива
 includes - возвращает елемент 
 
-
 */
+//==================================================
+//фильтрация по диапазону 'на месте'
+
+
+let arrNum = [5, 3, 4, 5, 6, 7,]
+
+console.log(arrNum);
+
+function filterRangeInPlace(arr, a, b) {
+
+	arr = arr.filter((num, index) => {
+
+		if (a <= index && b >= index) {
+
+			return true
+
+		} else {
+
+			return false
+
+		}
+
+	})
+
+	return arr
+}
+
+console.log(filterRangeInPlace(arrNum, 1, 2));
+
+console.log(arrNum);

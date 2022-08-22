@@ -22,14 +22,14 @@ let a = [2, 4, 3, 5, 8, 22, 7, 3];
 //console.log(a);
 //=================================
 
-const mean = (a) => {
+//const mean = (a) => {
 
-	let total = a.reduce((accum, item) => {
-		return accum + item
-	}, 0)
-	return total / a.length;
-}
-console.log(mean(a));
+//	let total = a.reduce((accum, item) => {
+//		return accum + item
+//	}, 0)
+//	return total / a.length;
+//}
+//console.log(mean(a));
 
 //=================================
 
@@ -144,9 +144,134 @@ console.log(mean(a));
 
 //console.log(newArr);
 
-
-
-
-
 //console.log('=============');
-//console.log(b);
+
+/*
+let users = [
+	{ name: 'Pasha', age: 17 },
+	{ name: 'Roma', age: 25 },
+	{ name: 'Kola', age: 16 },
+	{ name: 'Vana', age: 28 },
+]
+*/
+
+//let userNames = users.reduce((accum, user) => {
+//	accum.push(user.age)
+//	return accum
+//}, [])
+
+//userNames = userNames.reduce((accum, user) => {
+//	accum += user
+//	return accum / userNames.length
+//}, 0)
+//console.log(userNames);
+
+//let nameUsers = users.filter(item => {
+//	if (item.age > 18) {
+//		return true;
+//	}
+//	return false
+//})
+//console.log(nameUsers);
+//=================================
+//let nameUsers = users.map((item, index) => {
+
+//	return item.name + ',' + index
+
+//})
+//console.log(nameUsers);
+//================================
+
+/*
+const numbers = [3, 5, 7, 3, 5]
+numbers.forEach((item, index, array) => {
+	array[index] += 1
+})
+console.log(numbers);
+*/
+
+//const numbers = [5, 8, 6, 8, 4, 2, 6, 4]
+
+//const num = numbers.find(n => n == 6)
+//const num = numbers.filter(n => n == 6)
+
+/*
+let users = [
+	{ name: 'Pasha', age: 17 },
+	{ name: 'Roma', age: 25 },
+	{ name: 'Kola', age: 16 },
+	{ name: 'Vana', age: 28 },
+]
+
+let user = users.filter(item => {
+	if (item.age > 18) {
+		return true;
+	}
+})
+
+console.log(user);
+*/
+//const user = users.find(user => user.name == 'Kola' && user.age == 16)
+//console.log(user)
+
+/*
+let students = [
+	{ name: 'Egor', marks: [4, 6, 8, 4, 3, 4] },
+	{ name: 'Andrey', marks: [7, 5, 3, 8, 1, 3] },
+	{ name: "Misha", marks: [9, 1, 2, 4, 6, 1] },
+]
+
+students = students.map(student => {
+	let sum = student.marks.reduce((accum, item) => {
+		accum += item
+		return accum
+	}, 0)
+	student.avarage = sum / student.marks.length
+	return student
+})
+
+console.log(students)
+*/
+//=================================
+/*
+const arr = [5, 8, 2, 5, 1]
+arr.sort()
+console.log(arr)
+*/
+
+/*
+const names = ['Bogdan', 'C', "Alla"]
+names.sort()
+console.log(names)
+*/
+
+
+/*
+function compare(a, b) {
+	if (a > b) return 1321;
+	if (a == b) return 0;
+	if (a < b) return -165456546;
+}
+*/
+
+/*
+const arr = [1, 6, 2, 8, 3, 15]
+arr.sort((a, b) => a - b)
+console.log(arr)
+*/
+
+//let users = [
+//	{ name: 'Pasha', age: 17 },
+//	{ name: 'Roma', age: 25 },
+//	{ name: 'Kola', age: 16 },
+//	{ name: 'Vana', age: 28 },
+//]
+
+//users.sort((user1, user2) => {
+
+//	if (user1.age < user2.age) return -1// ничего делать не нужно
+//	if (user1.age == user2.age) return 0
+//	if (user1.age > user2.age) return 1// миняем местами
+
+//})
+//console.log(users);
