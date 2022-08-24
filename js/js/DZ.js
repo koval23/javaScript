@@ -47,20 +47,20 @@ includes - возвращает елемент
 
 //let arrNum = [5, 3, 4, 5, 6, 7,]
 
-//function filterRangeInPlace(arr, a, b) {
-//	arrNum = arr.filter((num, index) => {
-//		if (a > 0 && b < arrNum.length) {
-//			if (a <= index && b >= index) {
-//				return true
-//			} else {
-//				return false
-//			}
-//		} else {
-//			return false
-//		}
-//	})
-//	return arrNum
-//}
+function filterRangeInPlace(arr, a, b) {
+	arrNum = arr.filter((num, index) => {
+		if (a > 0 && b < arrNum.length) {
+			if (a <= index && b >= index) {
+				return true
+			} else {
+				return false
+			}
+		} else {
+			return false
+		}
+	})
+	return arrNum
+}
 //filterRangeInPlace(arrNum, 1, 2)
 //console.log(arrNum);
 
@@ -68,18 +68,18 @@ includes - возвращает елемент
 //*фильтрация по диапазону
 //let arrNum = [5, 3, 4, 9, 10, 11, 12, 13, 14, 15, 6, 7,]
 
-//function filterRange(arr, a, b) {
-//	if (a > 0 && b < arrNum.length) {
-//		arr = arr.filter(num => {
-//			if (num >= a && num <= b) {
-//				return true
-//			} else {
-//				return false
-//			}
-//		})
-//	}
-//	return arr
-//}
+function filterRange(arr, a, b) {
+	if (a > 0 && b < arrNum.length) {
+		arr = arr.filter(num => {
+			if (num >= a && num <= b) {
+				return true
+			} else {
+				return false
+			}
+		})
+	}
+	return arr
+}
 
 //console.log(filterRange(arrNum, 3, 9));
 //================================================
@@ -133,12 +133,12 @@ includes - возвращает елемент
 //	{ name: 'Vana', age: 28 },
 //]
 
-//function getAveregeAge(arr) {
-//	averegeNum = arr.reduce((accum, item) => {
-//		return accum + item.age
-//	}, 0)
-//	return averegeNum / arr.length
-//}
+function getAveregeAge(arr) {
+	averegeNum = arr.reduce((accum, item) => {
+		return accum + item.age
+	}, 0)
+	return averegeNum / arr.length
+}
 
 //console.log(getAveregeAge(users));
 
@@ -147,14 +147,14 @@ includes - возвращает елемент
 
 //let arrStr = ['кришна', 'кришна', 'харе', 'харе', 'харе', 'харе', 'кришна', 'кришна', ':-0']
 
-//function unique(arr) {
-//	let uniqueStr = arr.filter((str, ind, array) => {
-//		if (array.indexOf(str) === ind) {
-//			return true
-//		}
-//	})
-//	return uniqueStr
-//}
+function unique(arr) {
+	let uniqueStr = arr.filter((str, ind, array) => {
+		if (array.indexOf(str) === ind) {
+			return true
+		}
+	})
+	return uniqueStr
+}
 
 //console.log(unique(arrStr));
 //!====================================
@@ -175,13 +175,10 @@ let users = [
 	{ name: 'Vana', age: 28 },
 ]
 
-
-
 //console.log(result);
 //dir - параметр который поможет выбирать напрвление сортировки
+
 function sortArray(arr, prop, dir = false) {
-
-
 
 	let result = arr.sort((a, b) => {
 
