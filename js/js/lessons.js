@@ -18,7 +18,7 @@ let users = [
 
 //=========== REDUCE ===============
 
-let a = [2, 4, 3, 5, 8, 22, 7, 3];
+//let a = [2, 4, 3, 5, 8, 22, 7, 3];
 //console.log(a);
 //=================================
 
@@ -275,3 +275,94 @@ console.log(arr)
 
 //})
 //console.log(users);
+//========29.08 ============
+//func oop js
+
+//Инкапсуляция Наследование Полиморфизм
+
+//function User(name, age) {
+//	this.name = name;
+//	this.age = age;
+//	this.cars = [];
+
+//	this.addCar = function (car) {
+//		this.cars.push(car)
+//	}
+
+//	this.info = function () {
+//		console.log(this.name, this.age)
+//		for (const car of this.cars) {
+//			car.info();
+//		}
+//	}
+
+//}
+
+//function Car(model, mark, price) {
+//	this.model = model
+//	this.mark = mark
+//	this.price = price
+
+//	this.info = function () {
+//		console.log(this.model, this.mark, this.price)
+//	}
+
+//}
+
+//const andrey = new User("Andery", 21)
+//andrey.addCar(new Car('x5', 'bmw', 120000))
+//andrey.addCar(new Car('es300', 'lexus', 80000))
+//andrey.info()
+
+
+
+
+/*
+	телефонная книга
+
+	1 - Добавить контакт в телефонную книгу (Имя,номер)
+	2 - Посмотреть телефонную книгу (Показывает все имена)
+	3 - Найти контакт по имени
+	4 - Удалить контакт по имени
+	5 - выйти
+*/
+
+function TellBook() {
+	this.contacts = []
+	/*
+	this.addContact = function (contact) {
+		this.contacts.push(contact)
+	}
+	*/
+	this.addContact = function (name, phone) {
+		this.contacts.push(new Contact(name, phone))
+	}
+}
+
+function Contact(name, phone) {
+	this.name = name;
+	this.phone = phone;
+}
+
+let tellBook = new TellBook();
+tellBook.addContact("Sasha", 2143242)
+
+
+//let vova = new Contact("Vova", "32131231");
+//let vana = new Contact("Vana", "2342352454");
+//tellBook.addContact(vova);
+//tellBook.addContact(vana);
+
+console.log(tellBook);
+
+console.log('1 - Добавить контакт в телефонную книгу');
+console.log('2 - Посмотреть телефонную книгу');
+console.log('3 - Найти контакт по имени');
+console.log('4 - Удалить контакт по имени');
+console.log('5 - Выход');
+
+
+
+
+
+
