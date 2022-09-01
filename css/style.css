@@ -6,6 +6,10 @@
 body{
 	background-color: grey;
 }
-.orange{
-	background-color: orange;
+.container{
+	margin:300px 100px;
+}
+.text li{
+font-size: 30px;
+font-weight: 500;
 }

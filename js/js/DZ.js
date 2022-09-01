@@ -161,7 +161,7 @@ function unique(arr) {
 
 //function unique(arr) {
 //	return arr.reduce((accum, item) => {
-//		if (!(accum.includes(item))) { // не true
+//		if (!(accum.includes(item)) { // не true
 //			accum.push(item)
 //		}
 //		return accum
@@ -316,58 +316,58 @@ pasha.go()
 //console.log(m);
 //m.showAlert();
 
-
 //console.log(Alert);
-//!  tellBook   
-console.log('1 - Добавить контакт в телефонную книгу');
-console.log('2 - Посмотреть телефонную книгу');
-console.log('3 - Найти контакт по имени');
-console.log('4 - Удалить контакт по имени');
-console.log('5 - Выход');
+//!  tellBook
+//console.log('1 - Добавить контакт в телефонную книгу');
+//console.log('2 - Посмотреть телефонную книгу');
+//console.log('3 - Найти контакт по имени');
+//console.log('4 - Удалить контакт по имени');
+//console.log('5 - Выход');
 
-function TellBook() {
-	// массив контатов
-	this.contacts = []
-	// добавление контакта
-	this.addContact = function (contact) {
-		this.contacts.push(contact)
-	}
-	// удаление контакта
-	this.deleteContact = function (contact) {
-		this.contacts.splice(this.contacts.indexOf(contact), 1)
-	}
-	// поиск контакта
-	this.searchContact = function (contact) {
-		console.log(contact);
-	}
-	// показать все контакты
-	this.showTellBook = function () {
-		for (let contact of this.contacts) {
-			console.log(contact);
-		}
-	}
-}
+//function TellBook() {
+//	// массив контатов
+//	this.contacts = []
+//	// добавление контакта
+//	this.addContact = function (contact) {
+//		this.contacts.push(contact)
+//	}
+//	// удаление контакта
+//	this.deleteContact = function (contact) {
+//		this.contacts.splice(this.contacts.indexOf(contact), 1)
+//	}
+//	// поиск контакта
+//	this.searchContact = function (contact) {
+//		console.log(contact);
+//	}
+//	// показать все контакты
+//	this.showTellBook = function () {
+//		for (let contact of this.contacts) {
+//			console.log(contact);
+//		}
+//	}
+//}
 
-function Contact(name, phone) {
-	this.name = name;
-	this.phone = phone;
-}
+//function Contact(name, phone) {
+//	this.name = name;
+//	this.phone = phone;
+//}
 // инициализируем телефонную книгу
-let tellBook = new TellBook();
+//let tellBook = new TellBook();
 
 // инициализируем контакты
-let vova = new Contact("Vova", "32131231");
-let vana = new Contact("Vana", "34543");
-let kolya = new Contact("Kolya", "3453453");
-let ira = new Contact("Ira", "2342343");
-let vasa = new Contact("Vasa", "567657");
+//let vova = new Contact("Vova", "32131231");
+//let vana = new Contact("Vana", "34543");
+//let kolya = new Contact("Kolya", "3453453");
+//let ira = new Contact("Ira", "2342343");
+//let vasa = new Contact("Vasa", "567657");
 
 // проверка методов
-tellBook.addContact(vova);
-tellBook.addContact(vana);
-tellBook.addContact(kolya);
-tellBook.addContact(ira);
-tellBook.addContact(vasa);
-tellBook.deleteContact(vasa)
-tellBook.showTellBook();
-console.log(tellBook);
+//tellBook.addContact(vova);
+//tellBook.addContact(vana);
+//tellBook.addContact(kolya);
+//tellBook.addContact(ira);
+//tellBook.addContact(vasa);
+//tellBook.deleteContact("Vasa")
+//tellBook.showTellBook();
+//console.log(tellBook);
+// больница

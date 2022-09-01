@@ -317,17 +317,47 @@ console.log(arr)
 
 
 
+/*
+! DZ=================
+	телефонная книга
 
-//! DZ=================
-	//телефонная книга
+	1 - Добавить контакт в телефонную книгу (Имя,номер)
+	2 - Посмотреть телефонную книгу (Показывает все имена)
+	3 - Найти контакт по имени
+	4 - Удалить контакт по имени
+	5 - выйти
+*/
 
-	//1 - Добавить контакт в телефонную книгу (Имя,номер)
-	//2 - Посмотреть телефонную книгу (Показывает все имена)
-	//3 - Найти контакт по имени
-	//4 - Удалить контакт по имени
-	//5 - выйти
+//function TellBook() {
+//	this.contacts = []
+
+//	this.addContact = function (contact) {
+//		this.contacts.push(contact)
+//	}
 
 
+//}
+
+//function Contact(name, phone) {
+//	this.name = name;
+//	this.phone = phone;
+//}
+
+//let tellBook = new TellBook();
+
+
+//let vova = new Contact("Vova", "32131231");
+//let vana = new Contact("Vana", "2342352454");
+//tellBook.addContact(vova);
+//tellBook.addContact(vana);
+
+//console.log(tellBook);
+
+//console.log('1 - Добавить контакт в телефонную книгу');
+//console.log('2 - Посмотреть телефонную книгу');
+//console.log('3 - Найти контакт по имени');
+//console.log('4 - Удалить контакт по имени');
+//console.log('5 - Выход');
 
 
 
@@ -336,9 +366,66 @@ console.log(arr)
 
 //!=====================================
 
+//function Client(userName, userLastName) {
+//	this.name = userName
+//	this.lastName = userLastName
+//}
+
+//let vova = new Client('Vova', 'Petrov');
+//console.log(vova.lastName + ' ' + vova.name);
+//* создание обектов с помощю init
+//const Client = {
+
+//	init(userName, userLastName) {
+
+//		this.name = userName
+
+//		this.lastName = userLastName
+
+//		return this
+
+//	}
+
+//}
+
+//let vova = Object.create(Client).init('Vova', 'Petrov');
+//vova.init('Vova', 'Petrov');//если нет this в function
+//console.log(vova);
+//===============================
+
+//function Client(userName, userLastName) {
+//	this.name = userName
+//	this.lastName = userLastName
+//	this.hey = function () {
+//		console.log(this.name + ' ' + this.lastName);
+//	}
+//}
+// для добавления метода в prototype
+//Client.prototype.hello = function () {
+//	console.log('hello' + ' ' + this.name);
+//}
+
+//let vova = new Client('Vova', 'Petrov');
+//let kolya = new Client('Kolya', 'Ivanov');
+//console.log(vova);
+
+//vova.hello()
+//vova.hey()
+//kolya.hey()
+
+//!========================
 
 
+//let car = {
+//	mark: 'Volvo',
+//	color: 'red',
+//	speed: 200,
 
+//}
+
+//for (let key in car) {
+//	console.log(key + ': ' + car[key]);
+//}
 
 /*
 клас - это описание характеристик
@@ -353,3 +440,73 @@ console.log(arr)
 Пример:
 Методы(Ходить,Писать,Рисовать,Говорить)
 */
+//*==================================
+// ES 5
+//function User(name, id) {
+//	this.name = name;
+//	this.id = id;
+//	this.avatar = 'Photo';
+//this.avatarDelete = function () {
+//	this.avatar = null;
+//};
+//}
+//User.prototype.avatarDelete = function () {
+//	this.avatar = null;
+//};
+
+
+//let vova = new User('vova', 25)
+//let ivan = new User('Ivan', 30)
+
+//console.log([1, 2, 3]);
+//*==================================
+// ! 1.09
+
+//Методы акссесоры или же методы доступа
+//getter setter
+//getter - для получения данных
+//setterr - для изменения данных
+
+// Инкапсуляция - это сокрытие доступа к свойствам из вне. Это ограничение доступа к данным. Это контроль над полученными данными. Это объединение общей структуры объекта в один механизм
+
+
+//react, api, redux, mobx
+// (node js + express) + sql
+
+
+/*
+//function User(name, age) {
+//	this.__name = name;
+//	this.__age = age;
+
+//	this.setAge = function (age) {
+//		if (age > 0 && age < 100 && typeof (age) == 'number') {
+//			this.__age = age
+//		}
+//	}
+
+//	this.getName = function () {	
+//		if (this.__age >= 18) {
+//			return this.__name
+//		}
+//	}
+//}
+
+//const user = new User("Pasha", 16)
+
+
+
+//console.log(user.getName())
+*/
+
+
+
+
+
+
+
+
+
+
+
+

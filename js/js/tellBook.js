@@ -37,7 +37,7 @@ HTML CSS JS REACT NODE JS MySQL
 
 //const contacts = [];
 /*
-//1 - Добавить контакт в телефонную книгу (Имя,номер)
+1 - Добавить контакт в телефонную книгу (Имя,номер)
 function checkConctact(name) {
 	if (contacts.length == 0) {
 		return false
@@ -61,17 +61,17 @@ function addContact(name, tell) {
 	}
 
 
-	//if (isNaN(tell) != true) {
-	//	const contact = { name: name, tell: [tell] }
-	//	contacts.push(contact)
-	//	return true
-	//} else {
-	//	return false
-	//}
+	if (isNaN(tell) != true) {
+		const contact = { name: name, tell: [tell] }
+		contacts.push(contact)
+		return true
+	} else {
+		return false
+	}
 
 }
 
-//2 - Посмотреть телефонную книгу (Показывает все имена)
+2 - Посмотреть телефонную книгу (Показывает все имена)
 function watchTelBook() {
 	let result = '';
 	for (const user of contacts) {
@@ -85,7 +85,7 @@ function watchTelBook() {
 	}
 	return result
 }
-//3 - Найти контакт по имени
+3 - Найти контакт по имени
 function serchContactForName(searchName) {
 	for (const nameSearch of contacts) {
 		if (searchName == nameSearch.name) {
@@ -95,7 +95,7 @@ function serchContactForName(searchName) {
 	}
 	return false
 }
-//4 - Удалить контакт по имени
+4 - Удалить контакт по имени
 function deleteContact(deleteContact) {
 	for (const user of contacts) {
 		if (deleteContact == user.name) {
@@ -107,7 +107,7 @@ function deleteContact(deleteContact) {
 	}
 	return false
 }
-//5 Добавить номер к существующему контакту
+5 Добавить номер к существующему контакту
 function addNumber(name, tell) {
 	for (const nameSearch of contacts) {
 		if (name == nameSearch.name) {
@@ -116,7 +116,7 @@ function addNumber(name, tell) {
 	}
 	return name, tell
 }
-//6 Изменить контакт
+6 Изменить контакт
 function serchContact(name) {
 	for (const contact of contacts) {
 		if (name == contact.name) return contact
@@ -133,7 +133,7 @@ function changeContact(contact, idx, number) {
 	}
 }
 
-//====================================================
+====================================================
 
 let exit = false
 do {
@@ -141,7 +141,7 @@ do {
 
 	switch (menu) {
 		case 1: {
-			//1 - Добавить контакт в телефонную книгу (Имя,номер)
+			1 - Добавить контакт в телефонную книгу (Имя,номер)
 			let name = prompt('введите имя')
 			const findRes = checkConctact(name)
 			if (findRes == true) {
@@ -154,13 +154,13 @@ do {
 			break
 		}
 		case 2: {
-			//2 - Посмотреть телефонную книгу (Показывает все имена)
+			2 - Посмотреть телефонную книгу (Показывает все имена)
 			let result = watchTelBook()
 			alert(result)
 			break
 		}
 		case 3: {
-			//3 - Найти контакт по имени
+			3 - Найти контакт по имени
 			const searchName = prompt('введите нужное имя')
 			let serch = serchContactForName(searchName)
 			if (serch == false) {
@@ -171,7 +171,7 @@ do {
 			break
 		}
 		case 4: {
-			//4 - Удалить контакт по имени
+			4 - Удалить контакт по имени
 			let deletName = prompt('введите имя которое хотите удалить')
 			const namedeleteContact = deleteContact(deletName)
 			if (namedeleteContact == false) {
@@ -182,14 +182,14 @@ do {
 			break
 		}
 		case 5: {
-			//5 Добавить номер к существующему контакту
+			5 Добавить номер к существующему контакту
 			let contact2 = prompt('введите имя контакта')
 			let newContact = Number(prompt('введите ище один номер'))
 			addNumber(contact2, newContact)
 			break
 		}
 		case 6: {
-			//6 Изменить контакт
+			6 Изменить контакт
 			let changeContactName = prompt('введите имя которое хотите поменять')
 			let contact = serchContact(changeContactName)
 			if (contact == false) {
@@ -207,7 +207,7 @@ do {
 			break
 		}
 		case 7: {
-			//выход из меню
+			выход из меню
 			exit = true
 			break
 		}
