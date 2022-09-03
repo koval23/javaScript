@@ -27,9 +27,7 @@
 let text = document.querySelector('.text')
 
 function Medical() {
-	this.__doctors = [
-		this.__pacient = []
-	];
+	this.__doctors = [];
 	this.__patients = [];
 	// Добавить доктора имя и специальнось
 	this.setaddDoctor = function (doc) {
@@ -48,8 +46,12 @@ function Medical() {
 		for (let doctor of this.__doctors) {
 			console.log('Имя доктора' + ': ' + doctor.__name);
 			console.log('Специализация доктора' + ': ' + doctor.__spechality);
-			if (__pacient.length > 0) {
-				console.log('Пациенты' + ': ' + __pacient);
+			if (doctor.__doctorPatients.length > 0) {
+				for (let patient of doctor.__doctorPatients) {
+					console.log('Пациенты' + ': ' + patient);
+				}
+			} else {
+				console.log('Пациентов нет');
 			}
 		}
 	}
@@ -57,30 +59,61 @@ function Medical() {
 	this.getShowNamesPatients = function () {
 		for (let patient of this.__patients) {
 			console.log('Имя пациента' + ': ' + patient.__name);
-			console.log('Болезнь пациента' + ': ' + patient.__patient);
+			console.log('Болезнь пациента' + ': ' + patient.__disease);
 		}
 	}
+	//Призначить пациенту доктора
+	this.addPacientDoctor = function (namePatient, nameDoctor) {
+		let patObject = '';
+
+		for (let patient of this.__patients) {
+			if (patient.__name == namePatient) {
+				patObject = patient
+			}
+		}
+		for (let doctor of this.__doctors) {
+			if (doctor.__name == nameDoctor) {
+				doctor.__doctorPatients.push('Имя пациента ' + patObject.__name + '; ' + 'Болезнь: ' + patObject.__disease)
+			}
+		}
+	}
+	// Выписать пациента
+	this.deletPatient = function (pacientDel) {
+
+		for (patient of this.__patients) {
+			if (patient.__name == pacientDel) {
+				this.__patients.splice(this.__patients.indexOf(patient), 1)
+			}
+		}
+
+	}
+	//Посмотреть топ докторов
+	this.topDoctors = function () {
+
+		let res = []
+		for (doctor of this.__doctors) {
+			if (doctor.__doctorPatients.length > 0) {
+				res.push(doctor)
+			}
+			//res += doctor
+		}
+
+		console.log(res);
+
+	}
+
+
 	// Посмотреть количество свободных мест в больнице
 	this.vacancion = function () {
 		const result = 10 - this.__patients.length
 		console.log('Свободных мест: ' + result);
 	}
-	//Призначить пациенту доктора
-	this.addPacientDoctor = function (namePatient, nameDoctor) {
-		let pac = []
-		for (let patient of this.__patients) {
-			if (patient.__name == namePatient) {
-				pac = patient
-			}
-		}
-		for (let doctor of this.__doctors) {
-			if (doctor.__name == nameDoctor) {
-				doctor.__pacient.push(pac)
-			}
-		}
-	}
 }
+let q4 = new Patient('yura', 'Петров')
+let q5 = new Patient('ira', 'Петров')
+
 function Doctor(name, spechality) {
+	this.__doctorPatients = [];
 	this.__name = name;
 	this.__spechality = spechality;
 }
@@ -96,20 +129,24 @@ const medical = new Medical()
 
 let w1 = new Doctor('vita', 'dantist')
 let w2 = new Doctor('olga', 'pediatr')
-let w3 = new Doctor('vita', 'dantist')
+let w3 = new Doctor('vala', 'dantist')
+let w4 = new Doctor('vasa', 'hirurg')
+
 medical.setaddDoctor(w1)
 medical.setaddDoctor(w2)
 medical.setaddDoctor(w3)
+medical.setaddDoctor(w4)
+
 
 //console.log(w1.__name);
 
-let w4 = new Doctor('olga', 'pediatr')
-let w5 = new Doctor('vasa', 'hirurg')
+
 let q1 = new Patient('kola', 'Петров')
 let q2 = new Patient('Vova', 'Петров')
 let q3 = new Patient('vasa', 'Петров')
-let q4 = new Patient('yura', 'Петров')
-let q5 = new Patient('ira', 'Петров')
+
+
+medical.addPacientDoctor(q2)
 
 medical.setaddPatient(q1)
 medical.setaddPatient(q2)
@@ -159,10 +196,13 @@ do {
 		}
 		case 6: {
 			// Выписать пациента
+			const namePatientDel = prompt('Введите имя пациента которого нужно выписать')
+			medical.deletPatient(namePatientDel)
 			break
 		}
 		case 7: {
 			// Посмотреть топ докторов
+			medical.topDoctors()
 			break
 		}
 		case 8: {
