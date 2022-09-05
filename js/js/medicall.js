@@ -24,27 +24,33 @@
 *2  -имя, болзень / имя, болзень и доктор который лечит
 */
 
-let text = document.querySelector('.text')
 
+
+/*
 function Medical() {
 	this.__doctors = [];
 	this.__patients = [];
 	// Добавить доктора имя и специальнось
-	this.setaddDoctor = function (doc) {
+	this.addDoctor = function (doc) {
+		//Проверка на наличие докора в системе
 		this.__doctors.push(doc)
+		return true
 	}
 	// Добавить пациента
-	this.setaddPatient = function (pacient) {
+	//!===
+	this.addPatient = function (pacient) {
 		if (this.__patients.length <= 10) {
 			this.__patients.push(pacient)
+			return true
 		} else {
-			alert('Извените все места заняты')
+			//alert('Извените все места заняты')
+			return false
 		}
 	}
 	// Посмотреть докторов
 	this.getShowNamesDoctors = function () {
 		for (let doctor of this.__doctors) {
-			console.log('Имя доктора' + ': ' + doctor.__name);
+			console.log('Имя доктора' + ': ' + doctor.getName());
 			console.log('Специализация доктора' + ': ' + doctor.__spechality);
 			if (doctor.__doctorPatients.length > 0) {
 				for (let patient of doctor.__doctorPatients) {
@@ -90,15 +96,23 @@ function Medical() {
 	//Посмотреть топ докторов
 	this.topDoctors = function () {
 
-		let res = []
-		for (doctor of this.__doctors) {
-			if (doctor.__doctorPatients.length > 0) {
-				res.push(doctor)
-			}
-			//res += doctor
-		}
+		//console.log(w1.__doctorPatients.length);
 
-		console.log(res);
+		let arr = this.__doctors.sort(function (a, b) {
+			if (a.__doctorPatients.length > b.__doctorPatients.length) {
+				return 1
+			}
+			if (a.__doctorPatients.length < b.__doctorPatients.length) {
+				return -1
+			}
+
+		})
+
+		let text = ''
+		for (let i = 0; i < 3; i++) {
+			text += arr[i] + '\n';
+		}
+		return text
 
 	}
 
@@ -109,18 +123,30 @@ function Medical() {
 		console.log('Свободных мест: ' + result);
 	}
 }
+
+
+
 let q4 = new Patient('yura', 'Петров')
 let q5 = new Patient('ira', 'Петров')
 
 function Doctor(name, spechality) {
-	this.__doctorPatients = [];
+	this.__doctorPatients = [q4, q5];
 	this.__name = name;
 	this.__spechality = spechality;
+
+	this.getName = function () {
+		return this.__name;
+	}
+
 }
 
 function Patient(name, disease) {
 	this.__name = name;
 	this.__disease = disease;
+
+	this.setDisease = function (disease) {
+		this.__disease = disease;
+	}
 }
 
 const medical = new Medical()
@@ -132,10 +158,10 @@ let w2 = new Doctor('olga', 'pediatr')
 let w3 = new Doctor('vala', 'dantist')
 let w4 = new Doctor('vasa', 'hirurg')
 
-medical.setaddDoctor(w1)
-medical.setaddDoctor(w2)
-medical.setaddDoctor(w3)
-medical.setaddDoctor(w4)
+medical.addDoctor(w1)
+medical.addDoctor(w2)
+medical.addDoctor(w3)
+medical.addDoctor(w4)
 
 
 //console.log(w1.__name);
@@ -148,11 +174,11 @@ let q3 = new Patient('vasa', 'Петров')
 
 medical.addPacientDoctor(q2)
 
-medical.setaddPatient(q1)
-medical.setaddPatient(q2)
-medical.setaddPatient(q3)
-medical.setaddPatient(q4)
-medical.setaddPatient(q5)
+medical.addPatient(q1)
+medical.addPatient(q2)
+medical.addPatient(q3)
+medical.addPatient(q4)
+medical.addPatient(q5)
 
 
 let exit = false
@@ -165,7 +191,8 @@ do {
 			const name = prompt('ведите имя доктора')
 			const spechality = prompt('ведите специальность доктора')
 			const doctor = new Doctor(name, spechality)
-			medical.setaddDoctor(doctor)
+			const resAddDoctor = medical.addDoctor(doctor)
+			resAddDoctor ? alert("Доктор добавлен") : alert("Ошибка добавления")
 			break
 		}
 		case 2: {
@@ -173,7 +200,7 @@ do {
 			const name = prompt('ведите имя пациента')
 			const disease = prompt('ведите болезнь пациента')
 			const patient = new Patient(name, disease)
-			medical.setaddPatient(patient)
+			medical.addPatient(patient)
 			break
 		}
 
@@ -221,3 +248,77 @@ do {
 	}
 
 } while (exit == false)
+*/
+
+//Наследование
+/*
+function User(name, age) {
+	this.name = name
+	this.age = age
+}
+
+function test(name) {
+	this.name = name
+}
+
+const user = new User("Andrey", 22)
+test.call(user, 'kolya')
+test.apply(user, ['kolya'])
+console.log(user)
+
+//test.call
+//test.apply
+*/
+
+
+
+function Human(name, age) {
+	this.__name = name;
+	this.__age = age;
+
+	this.getName = function () {
+		return this.__name
+	}
+
+	this.setName = function (name) {
+		this.__name = name
+	}
+
+	this.getAge = function () {
+		return this.__age
+	}
+}
+
+function Student(name, age, univer) {
+	Human.call(this, name, age)
+	this.__univer = univer
+	this.getUniver = function () {
+		return this.__univer
+	}
+}
+
+function Employee(name, age, firm) {
+	Human.call(this, name, age)
+	this.__firm = firm
+	this.getFirm = function () {
+		return this.__firm
+	}
+}
+
+const student = new Student("Anton", 21, 'KN21');
+
+//student.setName("Kirill")
+console.log(student.getName())
+console.log(student)
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,10 +6,10 @@
 body{
 	background-color: grey;
 }
-.container{
+.container,.tellbook{
 	margin:300px 100px;
 }
-.text li{
+.text,.tellbook li{
 font-size: 30px;
 font-weight: 500;
 }
