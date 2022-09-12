@@ -487,7 +487,7 @@ console.log(arr)
 //		}
 //	}
 
-//	this.getName = function () {	
+//	this.getName = function () {
 //		if (this.__age >= 18) {
 //			return this.__name
 //		}
@@ -501,7 +501,68 @@ console.log(arr)
 //console.log(user.getName())
 */
 
+//! call и apply используеться при наследие
 
+function Human(name, age) {
+	this.__name = name;
+	this.__age = age;
+
+	this.getName = function () {
+		return this.__name
+	}
+	this.setName = function (name) {
+		this.__name = name
+	}
+	this.getAge = function () {
+		return this.__age
+	}
+
+}
+
+function Student(name, age, univer) {
+	Human.call(this, name, age)
+	this.__univer = univer
+
+	this.getUniver = function () {
+		return this.__univer
+	}
+
+}
+
+function Employee(name, age, firm) {
+	Human.call(this, name, age)
+	this.__firm = firm
+	this.getFirm = function () {
+		return this.__firm
+	}
+}
+
+const student = new Student("Anton", 21, 'KN21');
+
+student.setName("Kirill")
+console.log(student.getName())
+console.log(student)
+
+
+////Наследование
+
+//function User(name, age) {
+//	this.name = name
+//	this.age = age
+//}
+
+//function test(name) {
+//	this.name = name
+//}
+
+//const user = new User("Andrey", 22)
+//test.call(user, 'kolya')// вызвал функцыю и указал что this  будет обект user
+//test.apply(user, ['kolya'])
+//console.log(user)
+
+//call(context, arg1 ,arg2...[если параметры в квадратных скобочках то они не обезательные]) - метод
+
+//apply() - тоже самое что и apply  но параметры передаються масивом
 
 
 
