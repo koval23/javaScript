@@ -502,7 +502,6 @@ console.log(arr)
 */
 
 //! call и apply используеться при наследие
-
 function Human(name, age) {
 	this.__name = name;
 	this.__age = age;

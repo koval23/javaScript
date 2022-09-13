@@ -31,33 +31,43 @@ function Medical() {
 	this.__doctors = [];
 	this.__patients = [];
 
-	// Добавить доктора имя и специальнось
+	//!
+	this.getPatients = function () {
+		return this.__patients
+	}
+	this.getDoctors = function () {
+		return this.__doctors
+	}
+	//!
+
+	//todo Добавить доктора имя и специальнось
 	this.addDoctor = function (doc) {
 		//Проверка на наличие докора в системе
-		this.__doctors.push(doc)
+		for (doctor of this.getDoctors()) {
+			if (doctor != doc) {
+				this.getDoctors().push(doc)
+			} else {
+				return false
+			}
+		}
 		return true
 	}
-
-	// Добавить пациента
+	// todo Добавить пациента
 	this.addPatient = function (pacient) {
-		if (this.__patients.length <= 10) {
-			this.__patients.push(pacient)
+		if (this.getPatients().length <= 10) {
+			this.getPatients().push(pacient)
 			return true
 		} else {
 			return false
 		}
 	}
-
-	// Посмотреть докторов
-
-
-
+	//todo Посмотреть докторов
 	this.getShowNamesDoctors = function () {
 		let infoDoctors = ''
-		for (let doctor of this.__doctors) {
-			infoDoctors += `Имя доктора ${doctor.getName()} специализация ${doctor.getSpechality()} пациенты`
-			if (doctor.__doctorPatients.length > 0) {
-				for (let patient of doctor.__doctorPatients) {
+		for (let doctor of this.getDoctors()) {
+			infoDoctors += `Имя доктора ${doctor.getName()} специализация ${doctor.getSpechality()} пациенты `
+			if (doctor.getDoctorPatients().length > 0) {
+				for (let patient of doctor.getDoctorPatients()) {
 					infoDoctors += patient.getName() + ' '
 				}
 			} else {
@@ -67,81 +77,70 @@ function Medical() {
 		}
 		return infoDoctors
 	}
-
-
-	// Посмотреть пациентов
+	//todo Посмотреть пациентов
 	this.getShowNamesPatients = function () {
+		let infoPatients = ''
 		for (let patient of this.__patients) {
-
-			console.log('Имя пациента' + ': ' + patient.__name);
-			console.log('Болезнь пациента' + ': ' + patient.__disease);
-
+			infoPatients += `Имя пациента :  ${patient.getName()}, \n Болезнь пациента : ${patient.getDisease()}\n`
 		}
+		return infoPatients
 	}
-	//Призначить пациенту доктора
+	//todo Призначить пациенту доктора
 	this.addPacientDoctor = function (namePatient, nameDoctor) {
 		let patObject = '';
-
-		for (let patient of this.__patients) {
-			if (patient.__name == namePatient) {
+		let info = '';
+		for (let patient of this.getPatients()) {
+			if (patient.getName() == namePatient) {
 				patObject = patient
+			} else {
+				return info = `такого пациента нету: ${patient.getName()}`
 			}
 		}
-		for (let doctor of this.__doctors) {
-			if (doctor.__name == nameDoctor) {
-				doctor.__doctorPatients.push('Имя пациента ' + patObject.__name + '; ' + 'Болезнь: ' + patObject.__disease)
+		for (let doctor of this.getDoctors()) {
+			if (doctor.getName() == nameDoctor) {
+				doctor.getDoctorPatients().push('Имя пациента ' + patObject.getName() + '; ' + 'Болезнь: ' + patObject.getDisease())
+			} else {
+				return info = `такого доктора нету: ${doctor.getName()}`
 			}
 		}
+		info = 'Пациент добавлен доктору'
+		return info
 	}
-	// Выписать пациента
+	//todo Выписать пациента
 	this.deletPatient = function (pacientDel) {
-
-		for (patient of this.__patients) {
-			if (patient.__name == pacientDel) {
-				this.__patients.splice(this.__patients.indexOf(patient), 1)
+		for (patient of this.getPatients()) {
+			if (patient.getName() == pacientDel) {
+				this.getPatients().splice(this.getPatients().indexOf(patient), 1)
 			}
 		}
-
 	}
-	//Посмотреть топ докторов
+	//todo Посмотреть топ докторов
 	this.topDoctors = function () {
-
-		//console.log(w1.__doctorPatients.length);
-
-		let arr = this.__doctors.sort(function (a, b) {
-			if (a.__doctorPatients.length > b.__doctorPatients.length) {
+		let arr = this.getDoctors().sort(function (a, b) {
+			if (a.getDoctorPatients().length > b.getDoctorPatients().length) {
 				return 1
 			}
-			if (a.__doctorPatients.length < b.__doctorPatients.length) {
+			if (a.getDoctorPatients().length < b.getDoctorPatients().length) {
 				return -1
 			}
-
 		})
-
 		let text = ''
 		for (let i = 0; i < 3; i++) {
 			text += arr[i] + '\n';
 		}
 		return text
-
 	}
-
-	// Посмотреть количество свободных мест в больнице
+	//todo Посмотреть количество свободных мест в больнице
 	this.vacancion = function () {
-		const result = 10 - this.__patients.length
+		const result = 10 - this.getPatients().length
 		console.log('Свободных мест: ' + result);
 	}
 }
 
-//* инициализируем докторов
-function Doctor(name, spechality) {
-	this.__doctorPatients = [q4, q5];
-	this.__name = name;
-	this.__spechality = spechality;
+//* главный обект
+function Human(name) {
 
-	this.getSpechality = function () {
-		return this.__spechality;
-	}
+	this.__name = name;
 
 	this.getName = function () {
 		return this.__name;
@@ -149,23 +148,45 @@ function Doctor(name, spechality) {
 	this.setName = function (name) {
 		this.__name = name;
 	}
+}
+//* инициализируем докторов
+function Doctor(name, spechality) {
+	//!наследие от human
+	Human.call(this, name)
+
+	this.__doctorPatients = [q4, q5];
+	this.__spechality = spechality;
+
+	this.getSpechality = function () {
+		return this.__spechality;
+	}
+	this.setSpechality = function (spechality) {
+		this.__spechality = spechality;
+	}
+	this.getDoctorPatients = function () {
+		return this.__doctorPatients;
+	}
 
 }
 
 //* инициализируем пациентов
 function Patient(name, disease) {
-	this.__name = name;
+
+	Human.call(this, name)
+
 	this.__disease = disease;
 
 	this.setDisease = function (disease) {
 		this.__disease = disease;
 	}
-	this.setDisease = function () {
+	this.getDisease = function () {
 		return this.__disease;
 	}
-	this.getName = function () {
-		return this.__name
-	}
+
+}
+
+Patient.prototype.toString = function () {
+	return `${this.__name} ${this.__disease}`;
 }
 
 const medical = new Medical()
@@ -200,75 +221,77 @@ medical.addPatient(q4)
 medical.addPatient(q5)
 
 
-document.querySelector('button').onclick = () => {
-	let exit = false
-	do {
-		let menu = Number(prompt('введите число от 1 до 9'))
+//document.querySelector('button').onclick = () => {
+let exit = false
+do {
+	let menu = Number(prompt('введите число от 1 до 9'))
 
-		switch (menu) {
-			case 1: {
-				// Добавить доктора имя и специальнось
-				const name = prompt('ведите имя доктора')
-				const spechality = prompt('ведите специальность доктора')
-				const doctor = new Doctor(name, spechality)
-				const resAddDoctor = medical.addDoctor(doctor)
-				resAddDoctor ? alert("Доктор добавлен") : alert("Ошибка добавления")
-				break
-			}
-			case 2: {
-				// Добавить пациента
-				const name = prompt('ведите имя пациента')
-				const disease = prompt('ведите болезнь пациента')
-				const patient = new Patient(name, disease)
-				addPatient ? medical.addPatient(patient) : alert('Извените все места заняты')
-				break
-			}
-			case 3: {
-				// Посмотреть докторов
-
-				const info = medical.getShowNamesDoctors()
-				info == '' ? alert('Докторов нет') : alert(info);
-				break
-			}
-			case 4: {
-				// Посмотреть пациентов
-				medical.getShowNamesPatients()
-				break
-			}
-			case 5: {
-				// Призначить пациенту доктора
-				const namePatient = prompt('ведите имя пациента')
-				const nameDoctor = prompt('ведите имя доктора')
-				medical.addPacientDoctor(namePatient, nameDoctor)
-				break
-			}
-			case 6: {
-				// Выписать пациента
-				const namePatientDel = prompt('Введите имя пациента которого нужно выписать')
-				medical.deletPatient(namePatientDel)
-				break
-			}
-			case 7: {
-				// Посмотреть топ докторов
-				medical.topDoctors()
-				break
-			}
-			case 8: {
-				// Посмотреть количество свободных мест в больнице
-				medical.vacancion()
-				break
-			}
-			case 9: {
-				//выход из меню
-				exit = true
-				break
-			}
-			default: {
-				alert('такого пункта нет')
-			}
+	switch (menu) {
+		case 1: {
+			//todo Добавить доктора имя и специальнось
+			const name = prompt('ведите имя доктора')
+			const spechality = prompt('ведите специальность доктора')
+			const doctor = new Doctor(name, spechality)
+			const resAddDoctor = medical.addDoctor(doctor)
+			resAddDoctor ? alert("Доктор добавлен") : alert("Ошибка добавления")
+			break
 		}
-	} while (exit == false)
-}
+		case 2: {
+			//todo Добавить пациента
+			const name = prompt('ведите имя пациента')
+			const disease = prompt('ведите болезнь пациента')
+			const patient = new Patient(name, disease)
+			const resAdd = medical.addPatient(patient)
+			resAdd ? alert("Добавлен пациент") : alert('Извените все места заняты')
+			break
+		}
+		case 3: {
+			//todo Посмотреть докторов
+			const info = medical.getShowNamesDoctors()
+			info == '' ? alert('Докторов нет') : alert(info);
+			break
+		}
+		case 4: {
+			//todo Посмотреть пациентов
+			let info = medical.getShowNamesPatients()
+			alert(info);
+			break
+		}
+		case 5: {
+			//todo Призначить пациенту доктора
+			const namePatient = prompt('ведите имя пациента')
+			const nameDoctor = prompt('ведите имя доктора')
+			let result = medical.addPacientDoctor(namePatient, nameDoctor)
+			alert(result);
+			break
+		}
+		case 6: {
+			//todo Выписать пациента
+			const namePatientDel = prompt('Введите имя пациента которого нужно выписать')
+			medical.deletPatient(namePatientDel)
+			break
+		}
+		case 7: {
+			//todo Посмотреть топ докторов
+			medical.topDoctors()
+			break
+		}
+		case 8: {
+			//todo Посмотреть количество свободных мест в больнице
+			medical.vacancion()
+			break
+		}
+		case 9: {
+			//todo выход из меню
+			exit = true
+			break
+		}
+		default: {
+			alert('такого пункта нет')
+		}
+	}
+} while (exit == false)
+//}
 
 
 
