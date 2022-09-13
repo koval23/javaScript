@@ -43,13 +43,8 @@ function Medical() {
 	//todo Добавить доктора имя и специальнось
 	this.addDoctor = function (doc) {
 		//Проверка на наличие докора в системе
-		for (doctor of this.getDoctors()) {
-			if (doctor != doc) {
-				this.getDoctors().push(doc)
-			} else {
-				return false
-			}
-		}
+		this.getDoctors().push(doc)
+
 		return true
 	}
 	// todo Добавить пациента
@@ -68,7 +63,7 @@ function Medical() {
 			infoDoctors += `Имя доктора ${doctor.getName()} специализация ${doctor.getSpechality()} пациенты `
 			if (doctor.getDoctorPatients().length > 0) {
 				for (let patient of doctor.getDoctorPatients()) {
-					infoDoctors += patient.getName() + ' '
+					infoDoctors += patient.getName() + ', '
 				}
 			} else {
 				infoDoctors += `отсутствуют`
@@ -80,7 +75,7 @@ function Medical() {
 	//todo Посмотреть пациентов
 	this.getShowNamesPatients = function () {
 		let infoPatients = ''
-		for (let patient of this.__patients) {
+		for (let patient of this.getPatients()) {
 			infoPatients += `Имя пациента :  ${patient.getName()}, \n Болезнь пациента : ${patient.getDisease()}\n`
 		}
 		return infoPatients
@@ -133,7 +128,7 @@ function Medical() {
 	//todo Посмотреть количество свободных мест в больнице
 	this.vacancion = function () {
 		const result = 10 - this.getPatients().length
-		console.log('Свободных мест: ' + result);
+		return result
 	}
 }
 
@@ -149,12 +144,13 @@ function Human(name) {
 		this.__name = name;
 	}
 }
+
 //* инициализируем докторов
 function Doctor(name, spechality) {
-	//!наследие от human
+
 	Human.call(this, name)
 
-	this.__doctorPatients = [q4, q5];
+	this.__doctorPatients = [q1, q2];
 	this.__spechality = spechality;
 
 	this.getSpechality = function () {
@@ -182,7 +178,6 @@ function Patient(name, disease) {
 	this.getDisease = function () {
 		return this.__disease;
 	}
-
 }
 
 Patient.prototype.toString = function () {
@@ -192,8 +187,16 @@ Patient.prototype.toString = function () {
 const medical = new Medical()
 //* добавляем пациентов для теста ===================================================
 
+let q1 = new Patient('kola', 'Петров')
+let q2 = new Patient('Vova', 'Петров')
+let q3 = new Patient('vasa', 'Петров')
 let q4 = new Patient('yura', 'Петров')
 let q5 = new Patient('ira', 'Петров')
+
+medical.addPacientDoctor(q2)
+medical.addPatient(q3)
+medical.addPatient(q4)
+medical.addPatient(q5)
 
 let w1 = new Doctor('vita', 'dantist')
 let w2 = new Doctor('olga', 'pediatr')
@@ -204,21 +207,6 @@ medical.addDoctor(w1)
 medical.addDoctor(w2)
 medical.addDoctor(w3)
 medical.addDoctor(w4)
-
-//console.log(w1.__name);
-
-let q1 = new Patient('kola', 'Петров')
-let q2 = new Patient('Vova', 'Петров')
-let q3 = new Patient('vasa', 'Петров')
-
-
-medical.addPacientDoctor(q2)
-
-medical.addPatient(q1)
-medical.addPatient(q2)
-medical.addPatient(q3)
-medical.addPatient(q4)
-medical.addPatient(q5)
 
 
 //document.querySelector('button').onclick = () => {
@@ -278,7 +266,8 @@ do {
 		}
 		case 8: {
 			//todo Посмотреть количество свободных мест в больнице
-			medical.vacancion()
+			const result = medical.vacancion()
+			alert('Свободных мест: ' + result);
 			break
 		}
 		case 9: {
