@@ -9,7 +9,11 @@ body{
 .container,.tellbook{
 	margin:300px 100px;
 }
-.text,.tellbook li{
+/*.text,.tellbook li{
+font-size: 30px;
+font-weight: 500;
+}*/
+.text,.text2{
 font-size: 30px;
 font-weight: 500;
 }

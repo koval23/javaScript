@@ -502,45 +502,45 @@ console.log(arr)
 */
 
 //! call и apply используеться при наследие
-function Human(name, age) {
-	this.__name = name;
-	this.__age = age;
+//function Human(name, age) {
+//	this.__name = name;
+//	this.__age = age;
 
-	this.getName = function () {
-		return this.__name
-	}
-	this.setName = function (name) {
-		this.__name = name
-	}
-	this.getAge = function () {
-		return this.__age
-	}
+//	this.getName = function () {
+//		return this.__name
+//	}
+//	this.setName = function (name) {
+//		this.__name = name
+//	}
+//	this.getAge = function () {
+//		return this.__age
+//	}
 
-}
+//}
 
-function Student(name, age, univer) {
-	Human.call(this, name, age)
-	this.__univer = univer
+//function Student(name, age, univer) {
+//	Human.call(this, name, age)
+//	this.__univer = univer
 
-	this.getUniver = function () {
-		return this.__univer
-	}
+//	this.getUniver = function () {
+//		return this.__univer
+//	}
 
-}
+//}
 
-function Employee(name, age, firm) {
-	Human.call(this, name, age)
-	this.__firm = firm
-	this.getFirm = function () {
-		return this.__firm
-	}
-}
+//function Employee(name, age, firm) {
+//	Human.call(this, name, age)
+//	this.__firm = firm
+//	this.getFirm = function () {
+//		return this.__firm
+//	}
+//}
 
-const student = new Student("Anton", 21, 'KN21');
+//const student = new Student("Anton", 21, 'KN21');
 
-student.setName("Kirill")
-console.log(student.getName())
-console.log(student)
+//student.setName("Kirill")
+//console.log(student.getName())
+//console.log(student)
 
 
 ////Наследование
@@ -564,9 +564,88 @@ console.log(student)
 //apply() - тоже самое что и apply  но параметры передаються масивом
 
 
+//* 	ООП НА КЛАССАХ
+
+/*
+function Student(name, age, univer) {
+	this.name = name;
+	this.age = age;
+	this.univer = univer
+
+	this.info = function () {
+		console.log(this.name,this.age,this.univer)
+	}
+}
+*/
+
+//{name: 'Student', info: function () {}
+// вместо __   #
 
 
+class Human {
+	#name
+	#age
+	#surname
+	constructor(name, age, surname) {
+		this.#name = name;
+		this.#surname = surname
+		this.#age = age;
+	}
 
+	info() {
+		console.log(this.#name, this.#age)
+	}
+
+	get name() {
+		return this.#name;
+	}
+
+	set name(n) {
+		if (n != '') {
+			this.#name = n
+		}
+	}
+
+	set fullname(fl) {
+		//!деструктуризация
+		[this.#name, this.#surname] = fl.split(' ') //[name,surname]
+		//const arrNames = fl.split(' ');
+		//this.#name = arrNames[0];
+		//this.#surname = arrNames[1];
+	}
+
+	get fullname() {
+		return `${this.#name} ${this.#surname}`
+	}
+}
+
+
+class Student extends Human {
+	#univer
+	constructor(name, age, univer, surname) {
+		super(name, age, surname)
+		this.#univer = univer;
+	}
+	/*
+	info() {
+		console.log(this.fullname, this.#univer)
+	}
+	*/
+	info() {
+		//! росширение
+		super.info()
+		console.log(this.#univer)
+	}
+}
+
+//Object
+
+const student = new Student("Anton", 21, "KN", 'Avdeev')
+student.name = 'Egor'
+student.fullname = 'Pasha QQQ'
+console.log(student.fullname)
+console.log(student.name)
+student.info()
 
 
 
