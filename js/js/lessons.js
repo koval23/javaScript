@@ -596,6 +596,10 @@ class Human {
 		console.log(this.#name, this.#age)
 	}
 
+	get age() {
+		return this.#age
+	}
+
 	get name() {
 		return this.#name;
 	}
@@ -622,10 +626,17 @@ class Human {
 
 class Student extends Human {
 	#univer
-	constructor(name, age, univer, surname) {
+	#avr
+	constructor(name, age, univer, surname, avr) {
 		super(name, age, surname)
 		this.#univer = univer;
+		this.#avr = avr
 	}
+
+	get avr() {
+		return this.#avr
+	}
+
 	/*
 	info() {
 		console.log(this.fullname, this.#univer)
@@ -640,12 +651,96 @@ class Student extends Human {
 
 //Object
 
-const student = new Student("Anton", 21, "KN", 'Avdeev')
-student.name = 'Egor'
-student.fullname = 'Pasha QQQ'
-console.log(student.fullname)
-console.log(student.name)
-student.info()
+//const student = new Student("Anton", 21, "KN", 'Avdeev')
+//student.name = 'Egor'
+//student.fullname = 'Pasha QQQ'
+//console.log(student.fullname)
+//console.log(student.name)
+//student.info()
+
+// статические методы
+
+/*
+class MathStudent {
+
+	static good = 5;
+
+	static searchMin(students) {
+		let minStdn = students[0]
+		for (const stdn of students) {
+			if (minStdn.age > stdn.age) {
+				minStdn = stdn
+			}
+		}
+		return minStdn
+	}
+
+	static searchMax(students) {
+		let maxStdn = students[0]
+		for (const stdn of students) {
+			if (maxStdn.age < stdn.age) {
+				maxStdn = stdn
+			}
+		}
+		return minStdn
+	}
+
+	static getStudentsCool(students) {
+		return students.filter(student => student.avr >= this.good)
+	}
+}
+
+const student1 = new Student("Anton", 21, "KN", 'Avdeev', 4)
+const student2 = new Student("Egor", 17, "KN", 'Avdeev', 8)
+const student3 = new Student("Anton", 23, "KN", 'Avdeev', 7)
+
+console.log(MathStudent.good)
+console.log(MathStudent.searchMin([student1, student2, student3]));
+
+
+
+const arr = new Array();
+console.log(arr)
+*/
+
+
+
+class Man {
+	static retirementAge = 65;
+	constructor(name, age) {
+		this.name = name
+		this.age = age
+	}
+	print() {
+		console.log(this.name, this.age);
+	}
+	static calcRetirement(man) {
+		if (this.retirementAge > man.age) {
+			console.log(this.retirementAge - man.age)
+		} else {
+			console.log(0)
+		}
+	}
+}
+
+const man = new Man("Andrey", 50)
+Man.calcRetirement(man)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

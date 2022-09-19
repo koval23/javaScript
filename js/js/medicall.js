@@ -52,7 +52,6 @@ class Medical {
 			return false;
 		}
 	}
-
 	//todo Посмотреть докторов
 	showNamesDoctors() {
 		let infoDoctors = ''
@@ -99,6 +98,7 @@ class Medical {
 		return info
 	}
 	//todo Выписать пациента
+	//! нужен ответ
 	deletPatient(pacientDel) {
 		for (patient of this.#patients) {
 			if (patient.name == pacientDel) {
@@ -129,7 +129,7 @@ class Medical {
 	}
 }
 
-//* главный обект
+//* главный конструктор 
 class Human {
 	#name
 	constructor(name) {
@@ -281,125 +281,22 @@ do {
 //!дз СДЕЛАТЬ ВСЕ ВОЗМОЖНЫЕ ПРОВЕРКИ
 
 
-
-
+//class APIReqShop
+//class APIReqBlog
+//class APIReqSettings
 
 
 
 /*
-function Medical() {
-	//! дз сделать обрашение внутри конструктора на прямую
-	this.__doctors = [];
-	this.__patients = [];
-
-	//!
-	this.getPatients = function () {
-		return this.__patients
-	}
-	this.getDoctors = function () {
-		return this.__doctors
-	}
-	//!
-
-	//todo Добавить доктора имя и специальнось
-	this.addDoctor = function (doc) {
-		//Проверка на наличие докора в системе
-		this.getDoctors().push(doc)
-
-		return true
-	}
-	// todo Добавить пациента
-	this.addPatient = function (pacient) {
-		if (this.getPatients().length <= 10) {
-			this.getPatients().push(pacient)
-			return true
-		} else {
-			return false
-		}
-	}
-	//todo Посмотреть докторов
-	this.getShowNamesDoctors = function () {
-		let infoDoctors = ''
-		for (let doctor of this.getDoctors()) {
-			infoDoctors += `Имя доктора ${doctor.getName()} специализация ${doctor.getSpechality()} пациенты `
-			if (doctor.getDoctorPatients().length > 0) {
-				for (let patient of doctor.getDoctorPatients()) {
-					infoDoctors += patient.getName() + ', '
-				}
-			} else {
-				infoDoctors += `отсутствуют`
-			}
-			infoDoctors += '\n'
-		}
-		return infoDoctors
-	}
-	//todo Посмотреть пациентов
-	this.getShowNamesPatients = function () {
-		let infoPatients = ''
-		for (let patient of this.getPatients()) {
-			infoPatients += `Имя пациента :  ${patient.getName()}, \n Болезнь пациента : ${patient.getDisease()}\n`
-		}
-		return infoPatients
-	}
-	//todo Призначить пациенту доктора
-	this.addPacientDoctor = function (namePatient, nameDoctor) {
-		let patObject = '';
-		let info = '';
-		for (let patient of this.getPatients()) {
-			if (patient.getName() == namePatient) {
-				patObject = patient
-			} else {
-				return info = `такого пациента нету: ${patient.getName()}`
-			}
-		}
-		for (let doctor of this.getDoctors()) {
-			if (doctor.getName() == nameDoctor) {
-				doctor.getDoctorPatients().push('Имя пациента ' + patObject.getName() + '; ' + 'Болезнь: ' + patObject.getDisease())
-			} else {
-				return info = `такого доктора нету: ${doctor.getName()}`
-			}
-		}
-		info = 'Пациент добавлен доктору'
-		return info
-	}
-	//todo Выписать пациента
-	this.deletPatient = function (pacientDel) {
-		for (patient of this.getPatients()) {
-			if (patient.getName() == pacientDel) {
-				this.getPatients().splice(this.getPatients().indexOf(patient), 1)
-			}
-		}
-	}
-	//todo Посмотреть топ докторов
-	this.topDoctors = function () {
-		let arr = this.getDoctors().sort(function (a, b) {
-			if (a.getDoctorPatients().length > b.getDoctorPatients().length) {
-				return 1
-			}
-			if (a.getDoctorPatients().length < b.getDoctorPatients().length) {
-				return -1
-			}
-		})
-		let text = ''
-		for (let i = 0; i < 3; i++) {
-			text += arr[i] + '\n';
-		}
-		return text
-	}
-	//todo Посмотреть количество свободных мест в больнице
-	this.vacancion = function () {
-		const result = 10 - this.getPatients().length
-		return result
-	}
-}
+Реализовать статический метод для 
+перевода цельсия в форенгейты
+для перевода форенгейтов в цельсий
+и добавить статическую переменную
+которая будет хранить дату последней конвертации
 */
 
-
-
-
-
-
-
+const date = new Date()
+console.log(date.getFullYear())
 
 
 
