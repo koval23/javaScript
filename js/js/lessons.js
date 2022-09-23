@@ -728,6 +728,184 @@ Man.calcRetirement(man)
 
 
 
+Math.min()
+
+
+//class APIReqShop
+//class APIReqBlog
+//class APIReqSettings
+
+
+
+/*
+Реализовать статический метод для
+перевода цельсия в форенгейты
+для перевода форенгейтов в цельсий
+и добавить статическую переменную
+которая будет хранить дату последней конвертации
+*/
+
+//const celsiy = Number(prompt('ввелите градусы в фаренгейтах'))
+//const farengeit = prompt('введите градусы в цельсиях')
+
+
+
+/*
+class Weather {
+
+	static data;
+
+	static farInCel(far) {
+		const resCel = (far - 32) / 1.8
+		this.data = new Date()
+		return `${resCel} \n ${this.data}`
+	}
+
+	static celInFar(cel) {
+		const resFar = cel * 1.8 + 32
+		this.data = new Date()
+		return `${resFar} \n ${this.data}`
+	}
+
+}
+*/
+//const far = Weather.farInCel(23)
+
+//alert(Weather.farInCel(23))
+//alert(Weather.celInFar(1))
+//! ДЕСТРУКТУРИЗАЦИЯ
+
+
+/*
+const user = {
+	name: "Andrey",
+	age: 24,
+	city: "Lvov",
+	contactInfo: {
+		phone: "380654324242",
+		email: "adnr@gmail.com"
+	}
+}
+*/
+//const name = user.name
+//const phone = user.phone
+
+//const { name: fullname, age, city = "Город не выбран", contactInfo: { phone } } = user
+//console.log(fullname, age, city, phone)
+
+/*
+const user = {
+	name: "Andrey",
+	age: 24,
+	city: "Lvov",
+	phone: "380654324242",
+	email: "adnr@gmail.com"
+}
+
+
+const { name, age, ...info } = user
+
+console.log(name, age)
+console.log(info)
+*/
+
+//const { name, contactInfo: { phone, email = 'email нет' } } = user
+//console.log(name, phone, email);
+
+
+//const names = ["Andrey", "Pasha", "Sasha", "Gosha"]
+//const [n1, n2, ...arr] = names
+//console.log(n1, n2, arr)
+
+/*
+const users = [
+	{
+		name: "Pasha",
+		age: 24,
+		city: "Lvov",
+		phone: "380654324242",
+		email: "adnr@gmail.com"
+	},
+	{
+		name: "Andrey",
+		age: 12,
+		city: "Lvov",
+		phone: "380654324242",
+		email: "adnr@gmail.com"
+	}
+	, {
+		name: "Sasha",
+		age: 31,
+		city: "Lvov",
+		phone: "380654324242",
+		email: "adnr@gmail.com"
+	}
+]
+
+
+const [, { name, age }] = users
+console.log(name, age);
+*/
+
+
+/*
+console.log('hello world qwe'.slice(0, 6))
+console.log('hello world qwe'.substring(40, 6))
+console.log('hello world qwe'.length)
+console.log('hello world  qwe'.replace('world', 'test'))
+console.log('hello world qwe'.indexOf('world', 7))
+console.log('hello world qwe'.startsWith('hello w'))
+console.log('hello world qwe'.endsWith('we'))
+console.log('hello world qwe'.includes("world", 12))
+console.log('hello world qwe'.split(' '))
+console.log('hello world qwe'.concat(' qqqqq'))
+console.log('hello world qwe'.localeCompare("hello world qwe"))
+console.log('a'.charCodeAt())
+console.log('A'.charCodeAt())
+*/
+
+//DZ
+
+/*
+Cделать валидацию почты и пароля не использя регулярные выражения
+
+сделать 2 функции
+одна которая принимает почты
+вторая которая принимает пароль
+функции возвращают тру или фолсе исходя из проверки
+
+
+почта должна начинаться с цифры или буквы.
+почта должна содержать реальный домен gmail. mail, yandex, proton .ru,.com,.ua
+почта не должна быть больше 20 символов
+почта может содержать - _
+почта не должна содержать спец символы
+почта не должна быть пустой - @gmail.com
+
+пароль должен иметь цифры и специсимволы
+пароль должен иметь заглавные буквы
+пароль не должен содержать пробелы
+*/
+
+//1 0 -1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
